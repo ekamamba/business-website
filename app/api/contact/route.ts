@@ -47,11 +47,11 @@ const ip = forwardedFor?.split(",")[0].trim() ?? "unknown";
   );
 }
 
-    await resend.emails.send({
-      from: "Website Contact <onboarding@resend.dev>",
-      to: "dmkitsolutions2005@gmail.com",
-      subject: `New message from ${data.name}`,
-      text: `
+    const { data: emailData, error } = await resend.emails.send({
+  from: "Website Contact <onboarding@resend.dev>",
+  to: "dmkitsolutions2005@gmail.com",
+  subject: `New message from ${data.name}`,
+  text: `
 Name: ${data.name}
 
 Email: ${data.email}
@@ -62,7 +62,10 @@ Message:
 
 ${data.message}
 `,
-    });
+});
+
+console.log("Email Data:", emailData);
+console.error("Email Error:", error);
 
     return NextResponse.json({
       success: true,
