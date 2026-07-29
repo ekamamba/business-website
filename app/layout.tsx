@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import StructuredData from "@/components/StructuredData";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,6 +43,10 @@ export const metadata: Metadata = {
   creator: "DMK Consulting",
 
   applicationName: "DMK Consulting",
+
+  verification: {
+  google: "igfpMDYtf96DBVkDqpzvBVRyQpYgWqU66VhRlLKwIVc",
+},
 
   openGraph: {
   title: "DMK Consulting",
@@ -89,7 +94,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body
+  className={`${geistSans.variable} ${geistMono.variable} min-h-full flex flex-col antialiased`}
+>
+        
+          <StructuredData />
         <Header />
 
         <main className="flex-1">
