@@ -1,4 +1,7 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/config/site";
+
+metadataBase: new URL(siteConfig.url)
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://business-website-gilt-five.vercel.app";
