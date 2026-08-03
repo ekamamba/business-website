@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 import StructuredData from "@/components/StructuredData";
 import { siteConfig } from "@/config/site";
 
-metadataBase: new URL(siteConfig.url)
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+
   title: {
     default: "DMK Consulting",
     template: "%s | DMK Consulting",
@@ -46,6 +47,10 @@ export const metadata: Metadata = {
   creator: "DMK Consulting",
 
   applicationName: "DMK Consulting",
+
+  verification: {
+  google: "igfpMDYtf96DBVkDqpzvBVRyQpYgWqU66VhRlLKwIVc",
+},
 
   openGraph: {
   title: "DMK Consulting",
@@ -93,11 +98,14 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body
+  className={`${geistSans.variable} ${geistMono.variable} min-h-full flex flex-col antialiased`}
+>
+        
+          <StructuredData />
         <Header />
 
         <main className="flex-1">
-          <StructuredData />
           {children}
         </main>
 

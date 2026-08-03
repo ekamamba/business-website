@@ -1,7 +1,3 @@
-import { siteConfig } from "@/config/site";
-
-metadataBase: new URL(siteConfig.url)
-
 export default function StructuredData() {
   const jsonLd = {
     "@context": "https://schema.org",
